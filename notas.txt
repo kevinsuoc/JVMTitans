@@ -1,0 +1,24 @@
+Comandos.
+
+docker compose up
+docker run --rm -v "$PWD":/usr/src/proyecto -w /usr/src/proyecto javac Main.java
+
+Producto 1.
+
+1- Descargar aplicación con spring boot initializr
+2- Descargar JDK (Prueba en local, no en docker)
+3- Escribir un controlador con un mapping que devuelva "hello, world" (uoc.jvmtitans.proyecto.controller)
+4- Crear artifact para compilar la aplicación en un solo archivo
+5- Compilar el .jar desde intellij
+6- Escribir un dockerfile con JDK21 que ejecute el archivo .jar
+7- Escribir un docker-compose que ejecute la imagen, exponga el puerto (8080 tomcast default) y cree el volumen de la aplicación
+8- Levantar el contenedor debería mostrar un "Hello, world" de acuerdo a el mapping realizado
+9- Subir el proyecto a GitHub para trabajar en los siguientes productos.
+
+Recursos producto 1.
+
+Web hello world: https://spring.io/quickstart
+
+Estructura de directorios: https://malshani-wijekoon.medium.com/spring-boot-folder-structure-best-practices-18ef78a81819
+
+Imagen docker de JDK: https://hub.docker.com/_/openjdk
