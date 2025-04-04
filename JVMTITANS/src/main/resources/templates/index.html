@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout">
+<head>
+    <title>Inicio</title>
+</head>
+
+<section>
+    <div class="text-center mt-5">
+        <h1 class="mb-4">🚗 Bienvenido a AlquilaTusVehículos</h1>
+        <p class="lead">Gestiona fácilmente tus clientes, vehículos y alquileres desde un solo lugar.</p>
+
+        <div class="d-flex justify-content-center mt-4 gap-3">
+            <a href="/clientes" class="btn btn-outline-primary btn-lg">👤 Clientes</a>
+            <a href="/vehiculos" class="btn btn-outline-success btn-lg">🚘 Vehículos</a>
+            <a href="/alquileres" class="btn btn-outline-warning btn-lg">📅 Alquileres</a>
+        </div>
+    </div>
+</section>
+</html>
