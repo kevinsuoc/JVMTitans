@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout">
+<head>
+    <title>Formulario Vehículo</title>
+</head>
+
+<section>
+    <h2 class="mb-4" th:text="${vehiculo.id} != null ? 'Editar Vehículo' : 'Nuevo Vehículo'">Formulario Vehículo</h2>
+
+    <form th:action="@{/vehiculos}" th:object="${vehiculo}" method="post" class="border p-4 bg-white rounded shadow-sm">
+
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="mb-3">
+            <label class="form-label">Marca</label>
+            <input type="text" th:field="*{marca}" class="form-control" placeholder="Ej: Toyota">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Modelo</label>
+            <input type="text" th:field="*{modelo}" class="form-control" placeholder="Ej: Corolla">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Año</label>
+            <input type="number" th:field="*{año}" class="form-control" placeholder="Ej: 2022">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Precio por día (€)</label>
+            <input type="number" step="0.01" th:field="*{precioPorDia}" class="form-control" placeholder="Ej: 45.00">
+        </div>
+
+        <button type="submit" class="btn btn-success">💾 Guardar</button>
+        <a href="/vehiculos" class="btn btn-secondary">🔙 Volver</a>
+    </form>
+</section>
+</html>

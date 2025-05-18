@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout">
+<head>
+    <title>Lista de Vehículos</title>
+</head>
+
+<section th:fragment="section">
+    <h2 class="mb-4">Lista de Vehículos</h2>
+
+    <a href="/admin/vehiculo/nuevo" class="btn btn-primary mb-3">➕ Nuevo Vehículo</a>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Precio por día</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vehiculo : ${vehiculos}">
+            <td th:text="${vehiculo.marca}"></td>
+            <td th:text="${vehiculo.modelo}"></td>
+            <td th:text="${vehiculo.anio}"></td>
+            <td th:text="${vehiculo.precioPorDia} + ' €'"></td>
+            <td>
+                <a th:href="@{/admin/vehiculo/editar/{id}(id=${vehiculo.id})}" class="btn btn-sm btn-warning">✏️ Editar</a>
+                <form th:action="@{/admin/vehiculo/eliminar/{id}(id=${vehiculo.id})}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-danger">🗑️ Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</html>

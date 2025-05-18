@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Navbar superior con nombre de usuario -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">🚗 AlquilaTusVehículos</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-bs-toggle="dropdown">
+                        👤 <span th:text="${username}">Usuario</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" th:href="@{/admin/home}">Panel de Administrador</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form th:action="@{/logout}" method="post">
+                                <button type="submit" class="dropdown-item">🚪 Cerrar sesión</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Panel del Administrador</h2>
+    <div class="alert alert-success">
+        Hola, <span th:text="${username}">admin</span> 👑
+    </div>
+
+    <div class="d-flex gap-2">
+        <a href="/" class="btn btn-primary">🏠 Ir al inicio</a>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-danger">🚪 Cerrar sesión</button>
+        </form>
+    </div>
+
+    <div class="text-center mt-5">
+        <h1 class="mb-4">🚗 Bienvenido a AlquilaTusVehículos</h1>
+        <p class="lead">Gestiona fácilmente tus clientes, vehículos y alquileres desde un solo lugar.</p>
+
+        <div class="d-flex justify-content-center mt-4 gap-3">
+            <a href="/admin/clientes" class="btn btn-outline-primary btn-lg">👤 Clientes</a>
+            <a href="/admin/vehiculos" class="btn btn-outline-success btn-lg">🚘 Vehículos</a>
+            <a href="/admin/alquiler" class="btn btn-outline-warning btn-lg">📅 Alquileres</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

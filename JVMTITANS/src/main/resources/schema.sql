@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS rol (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS usuario (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS usuario_roles (
+    usuario_id BIGINT NOT NULL,
+    roles_id BIGINT NOT NULL,
+    PRIMARY KEY (usuario_id, roles_id),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (roles_id) REFERENCES rol(id) ON DELETE CASCADE
+);
